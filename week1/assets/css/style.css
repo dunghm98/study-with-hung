@@ -1,0 +1,452 @@
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: "Karla", sans-serif;
+  color: #707070;
+}
+
+.text-farmie-green {
+  color: #28a745;
+}
+
+.header-area {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+}
+.top-header-area {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background-color: #f2f4f5;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.top-header-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 40px;
+  background-color: #f2f4f5;
+}
+
+.top-header-content .top-header-meta {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 50%;
+  max-width: 50%;
+  width: 50%;
+}
+
+.top-header-content .top-header-meta p {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+.top-header-content .top-header-meta a {
+  font-size: 12px;
+  color: #707070;
+  font-weight: 400;
+}
+
+.top-header-content .top-header-meta a:first-child {
+  margin-right: 30px;
+}
+/* END TOP HEADER */
+
+.sticky-wrapper {
+  height: 80px;
+}
+.header-area .famie-main-menu {
+  position: relative;
+  width: 100%;
+}
+.header-area .famie-main-menu .classy-navbar {
+  padding: 0;
+  height: 80px;
+}
+
+.classynav ul li {
+  display: inline-block;
+}
+
+.classynav ul li.cn-dropdown-item {
+  position: relative;
+  z-index: 10;
+}
+
+.classynav ul li .dropdown {
+  width: 180px;
+  position: absolute;
+  background-color: #ffffff;
+  top: 120%;
+  left: 0;
+  z-index: 100;
+  height: auto;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition-duration: 300ms;
+  opacity: 0;
+  visibility: hidden;
+  padding: 10px 0;
+}
+
+.classynav ul li .dropdown li .dropdown {
+  top: 10px;
+  left: 180px;
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.classynav ul li.cn-dropdown-item ul li {
+  position: relative;
+  z-index: 10;
+}
+.classynav ul li ul li {
+  display: block;
+}
+
+.classynav ul li:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+}
+
+.classynav ul li .dropdown li:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  top: -10px;
+}
+
+.header-area .famie-main-menu .classynav ul li a {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #303030;
+  padding: 0 12px;
+  display: block;
+  height: 35px;
+  font-size: 14px;
+  line-height: 34px;
+}
+
+.classynav ul li.megamenu-item .fa-chevron-down,
+.classynav ul li.has-down .fa-chevron-down {
+  font-size: 12px;
+  color: #000000;
+  padding-left: 2px;
+  transition-duration: 500ms;
+}
+
+.famie-green-hover:hover {
+  color: #77b122 !important;
+}
+.header-area .famie-main-menu .classynav ul li a:focus,
+.header-area .famie-main-menu .classynav ul li a:hover,
+.header-area #searchIcon:focus,
+.header-area #cartIcon a:focus,
+.header-area #cartIcon a:hover,
+.header-area #searchIcon:hover {
+  color: #77b122;
+}
+
+.header-area #searchIcon {
+  position: relative;
+  z-index: 1;
+  color: #303030;
+  margin: 0 25px;
+  cursor: pointer;
+  transition-duration: 500ms;
+  display: inline-block;
+}
+.header-area #cartIcon {
+  position: relative;
+}
+.header-area #cartIcon a {
+  display: inline-block;
+  font-size: 18px;
+  color: #303030;
+}
+.header-area #cartIcon a span {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  z-index: 9;
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #77b122;
+  color: #ffffff;
+  font-size: 10px;
+  text-align: center;
+  line-height: 15px;
+}
+
+/* END HEADER */
+
+/* START HERO AREA  */
+
+.hero-area {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 550px;
+  background-image: url("https://preview.colorlib.com/theme/farmie/img/bg-img/1.jpg.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+/* START BENEFIT ARE */
+
+.benefits-area {
+  padding-top: 100px;
+  padding-bottom: 3rem;
+}
+
+.benefits-thumbnail {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 50px;
+}
+
+.benefits-thumbnail img {
+  border-radius: 3px;
+}
+.single-benefits-area {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* ABOUT US */
+.about-us-content-wrapper {
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.about-us-content {
+  margin-bottom: 100px;
+}
+.section-heading {
+  position: relative;
+  margin-bottom: 50px;
+}
+.famie-btn {
+  background-color: #77b122;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 160px;
+  height: 50px;
+  color: #ffffff;
+  border-radius: 0;
+  padding: 0 30px;
+  font-size: 16px;
+  line-height: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.about-us-content .famie-btn {
+  margin-top: 30px;
+}
+.famie-btn:hover,
+.famie-btn:focus {
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #0f1112;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.about-us-video-wrapper {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.about-us-video {
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  margin-bottom: 100px;
+}
+
+.about-us-video img {
+  border-radius: 50%;
+}
+.about-us-video .play-icon {
+  position: absolute;
+  font-size: 40px;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+}
+
+.about-us-video::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+/* Featured Product */
+.section-heading p {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.section-heading h2 {
+  margin-bottom: 10px;
+  font-size: 30px;
+  margin-left: -3px;
+}
+
+.single-product-area {
+  position: relative;
+  z-index: 1;
+}
+.single-product-area .product-thumbnail {
+  position: relative;
+  z-index: 1;
+}
+
+.single-product-area .product-thumbnail .product-tags {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 9;
+  padding: 0 12px;
+  border-radius: 3px;
+  background-color: #23c39f;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 20px;
+  height: 20px;
+  display: inline-block;
+  color: #ffffff;
+}
+
+.bg-danger {
+  background-color: #dc3545;
+}
+.single-product-area .product-thumbnail .product-meta-data {
+  transition-duration: 500ms;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 30px;
+  /* opacity: 0;
+  visibility: hidden; */
+}
+
+.single-product-area:hover .product-thumbnail .product-meta-data {
+  opacity: 1;
+  visibility: visible;
+}
+
+.single-product-area .product-thumbnail .product-meta-data a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  line-height: 42px;
+  margin: 0 5px;
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.single-product-area .product-thumbnail .product-meta-data a:hover {
+  color: #fff;
+  background-color: #77b122;
+}
+
+.single-product-area .product-desc {
+  position: relative;
+  z-index: 1;
+  padding-top: 1.5rem;
+}
+.single-product-area .product-desc .product-title {
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: 400;
+  display: block;
+}
+.single-product-area .product-desc .price {
+  margin-bottom: 0;
+  font-size: 18px;
+}
+/* MEDIA QUERY */
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+  .top-header-content {
+    height: auto;
+    padding: 10px 0;
+    flex-wrap: wrap;
+  }
+  .top-header-content .top-header-meta p {
+    font-size: 11px;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+  .col-lg {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+  .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}

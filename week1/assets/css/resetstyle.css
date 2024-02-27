@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+a:focus,
+a:hover {
+  transition-duration: 500ms;
+  text-decoration: none;
+  outline: 0 solid transparent;
+  color: #707070;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: "Karla", sans-serif;
+}
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+  outline: 0 solid transparent;
+  font-size: 14px;
+}
+ul li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Karla", sans-serif;
+  color: #303030;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  border-style: none;
+}
+
+p {
+  font-family: "Karla", sans-serif;
+  color: #707070;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 400;
+}

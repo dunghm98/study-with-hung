@@ -1,0 +1,23 @@
+.flex {
+  display: flex !important;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+    text-align: center;
+  }
+  
+.mb-50 {
+  margin-bottom: 50px !important;
+}
