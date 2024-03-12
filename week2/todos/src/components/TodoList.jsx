@@ -50,6 +50,24 @@ export default class TodoList extends Component {
     const newToDoList = this.state.todoList.filter(item => item.id !== removeId)
     this.setState({ todoList: newToDoList })
   }
+  handleCompleteItem = selectedId => {
+    const newToDoList = this.state.todoList.map(item => {
+      if (item.id === selectedId) {
+        const selectedItem = { ...item }
+        if (selectedItem.status === 'done') {
+          selectedItem.status = 'active'
+        } else if (selectedItem.status === 'active') {
+          selectedItem.status = 'done'
+        }
+        return selectedItem
+      }
+      return item
+    })
+
+    this.setState({
+      todoList: newToDoList
+    })
+  }
 
   handleFilterStatus = status => {
     this.setState({
@@ -57,10 +75,11 @@ export default class TodoList extends Component {
     })
   }
   handleClearComplete = () => {
-    const newTodoList = this.state.todoList.filter(item => item.status !== 'done')
+    const newTodoList = this.state.todoList.filter(
+      item => item.status !== 'done'
+    )
     this.setState({ todoList: newTodoList })
   }
-  
 
   render () {
     const displayData =
@@ -132,11 +151,17 @@ export default class TodoList extends Component {
                     title={item.title}
                     key={item.id}
                     onRemove={this.handleRemoveItem}
+                    onComplete={this.handleCompleteItem}
                   />
                 )
               })}
             <div className='bottom-action text-right mt-4'>
-              <button onClick={this.handleClearComplete} className='text-yellow-600 text-sm hover:text-yellow-500'>Clear complete</button>
+              <button
+                onClick={this.handleClearComplete}
+                className='text-yellow-600 text-sm hover:text-yellow-500'
+              >
+                Clear complete
+              </button>
             </div>
           </div>
         </div>

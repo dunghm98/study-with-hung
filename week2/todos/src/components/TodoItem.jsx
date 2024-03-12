@@ -6,6 +6,10 @@ export default class TodoItem extends React.Component {
     const { id, onRemove } = this.props
     onRemove(id)
   }
+  handleCompleteItem = () => {
+    const {id, onComplete } = this.props
+    onComplete(id)
+  }
   render () {
     const { defaultChecked, id, title } = this.props
     return (
@@ -15,6 +19,7 @@ export default class TodoItem extends React.Component {
           type='checkbox'
           id={id}
           defaultChecked={defaultChecked}
+          onChange={this.handleCompleteItem}
         />
         <label
           className='flex items-center h-10 px-2 rounded cursor-pointer'
