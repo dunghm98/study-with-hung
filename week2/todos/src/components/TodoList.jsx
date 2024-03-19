@@ -1,50 +1,33 @@
-import { Component } from 'react'
+import { Component, createRef } from 'react'
 import TodoItem from './TodoItem'
 import Filter from './Filter'
+import { produce } from 'immer'
+import { TASK_STATUS } from '../constant'
 
 export default class TodoList extends Component {
   constructor () {
     super()
     this.state = {
-      todoList: [
-        {
-          id: 'task_1',
-          title: 'Weed front garden.',
-          status: 'done'
-        },
-        {
-          id: 'tasl_2',
-          title: 'Chill and smoke some Old Toby.',
-          status: 'active'
-        },
-        {
-          id: 'tasl_3',
-          title: 'Keep ring secret and safe.',
-          status: 'active'
-        }
-      ],
-      newItemTitle: '',
-      filterStatus: 'all'
+      todoList: [],
+      filterStatus: TASK_STATUS.all.id
     }
-  }
-
-  handleChangeNewTitle = e => {
-    this.setState({ newItemTitle: e.target.value })
+    this.inputRef = createRef()
   }
 
   handleAddNewItem = () => {
-    if (!this.state.newItemTitle.length) {
+    const currentInputValue = this.inputRef.current.value
+    if (!currentInputValue) {
       return
     }
     const newItem = {
       id: `task_${this.state.todoList.length + 1}`,
-      title: this.state.newItemTitle,
-      status: 'active'
+      title: currentInputValue,
+      status: TASK_STATUS.active.id
     }
     this.setState({
-      todoList: [...this.state.todoList, newItem],
-      newItemTitle: ''
+      todoList: [...this.state.todoList, newItem]
     })
+    this.inputRef.current.value = ''
   }
   handleRemoveItem = removeId => {
     const newToDoList = this.state.todoList.filter(item => item.id !== removeId)
@@ -54,10 +37,10 @@ export default class TodoList extends Component {
     const newToDoList = this.state.todoList.map(item => {
       if (item.id === selectedId) {
         const selectedItem = { ...item }
-        if (selectedItem.status === 'done') {
-          selectedItem.status = 'active'
-        } else if (selectedItem.status === 'active') {
-          selectedItem.status = 'done'
+        if (selectedItem.status === TASK_STATUS.done.id) {
+          selectedItem.status = TASK_STATUS.active.id
+        } else if (selectedItem.status === TASK_STATUS.active.id) {
+          selectedItem.status = TASK_STATUS.done.id
         }
         return selectedItem
       }
@@ -68,6 +51,16 @@ export default class TodoList extends Component {
       todoList: newToDoList
     })
   }
+  handleDoneEdit = ({ id, value }) => {
+    this.setState(prevState => ({
+      todoList: produce(prevState.todoList, draft => {
+        const index = draft.findIndex(item => item.id === id)
+        if (index !== -1) {
+          draft[index].title = value
+        }
+      })
+    }))
+  }
 
   handleFilterStatus = status => {
     this.setState({
@@ -76,14 +69,19 @@ export default class TodoList extends Component {
   }
   handleClearComplete = () => {
     const newTodoList = this.state.todoList.filter(
-      item => item.status !== 'done'
+      item => item.status !== TASK_STATUS.done.id
     )
     this.setState({ todoList: newTodoList })
+  }
+  handleKeyDown = event => {
+    if (event.key === 'Enter') {
+      this.handleAddNewItem()
+    }
   }
 
   render () {
     const displayData =
-      this.state.filterStatus === 'all'
+      this.state.filterStatus === TASK_STATUS.all.id
         ? this.state.todoList
         : this.state.todoList.filter(
             item => item.status === this.state.filterStatus
@@ -116,11 +114,12 @@ export default class TodoList extends Component {
             />
             <div className='flex items-center w-full h-8 pl-2 mt-2 mb-4 '>
               <input
+                ref={this.inputRef}
                 className='flex-grow h-8 mr-4 bg-transparent focus:outline-none font-medium border border-gray-300 p-2.5 rounded-md'
                 type='text'
                 placeholder='Add a new task'
-                onChange={this.handleChangeNewTitle}
-                value={this.state.newItemTitle}
+                defaultValue=''
+                onKeyDown={this.handleKeyDown}
               />
               <button
                 onClick={this.handleAddNewItem}
@@ -143,15 +142,16 @@ export default class TodoList extends Component {
               </button>
             </div>
             {displayData &&
-              displayData.map(item => {
+              displayData.map((item, index) => {
                 return (
                   <TodoItem
                     id={item.id}
-                    defaultChecked={item.status === 'done'}
+                    defaultChecked={item.status === TASK_STATUS.done.id}
                     title={item.title}
-                    key={item.id}
+                    key={index}
                     onRemove={this.handleRemoveItem}
                     onComplete={this.handleCompleteItem}
+                    onDoneEdit={this.handleDoneEdit}
                   />
                 )
               })}

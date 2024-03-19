@@ -1,5 +1,6 @@
 import React from 'react'
 import { CiSquareRemove } from 'react-icons/ci'
+import Editable from './EditableItem'
 
 export default class TodoItem extends React.Component {
   handleRemoveItem = () => {
@@ -7,11 +8,11 @@ export default class TodoItem extends React.Component {
     onRemove(id)
   }
   handleCompleteItem = () => {
-    const {id, onComplete } = this.props
+    const { id, onComplete } = this.props
     onComplete(id)
   }
   render () {
-    const { defaultChecked, id, title } = this.props
+    const { defaultChecked, id, title, onDoneEdit } = this.props
     return (
       <div className='flex items-center justify-between hover:bg-gray-100'>
         <input
@@ -39,9 +40,12 @@ export default class TodoItem extends React.Component {
               />
             </svg>
           </span>
-          <span className='ml-4 text-sm'>{title}</span>
         </label>
-        <CiSquareRemove onClick={this.handleRemoveItem} className='cursor-pointer hover:text-red-500' />
+        <Editable id={id} title={title} onClickOutside={onDoneEdit} />
+        <CiSquareRemove
+          onClick={this.handleRemoveItem}
+          className='cursor-pointer hover:text-red-500'
+        />
       </div>
     )
   }

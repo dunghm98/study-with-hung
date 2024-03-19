@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import FilterItem from './FilterItem'
+import { TASK_STATUS } from '../constant'
 
 export default class Filter extends Component {
   constructor () {
@@ -7,16 +8,16 @@ export default class Filter extends Component {
     this.state = {
       filters: [
         {
-          label: 'All',
-          id: 'all'
+          label: TASK_STATUS.all.label,
+          id: TASK_STATUS.all.id
         },
         {
-          label: 'Active',
-          id: 'active'
+          label: TASK_STATUS.active.label,
+          id: TASK_STATUS.active.id
         },
         {
-          label: 'Done',
-          id: 'done'
+          label: TASK_STATUS.done.label,
+          id: TASK_STATUS.done.id
         }
       ]
     }
@@ -31,13 +32,13 @@ export default class Filter extends Component {
     const { status } = this.props
     return (
       <div className='flex rounded-xl bg-gray-100 p-2'>
-        {this.state.filters.map(item => {
+        {this.state.filters.map((item, index) => {
           return (
             <FilterItem
               defaultChecked={status === item.id}
               label={item.label}
               id={item.id}
-              key={item.id}
+              key={index}
               onClick={this.handleClickFilter}
             />
           )
